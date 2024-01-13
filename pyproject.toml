@@ -19,6 +19,8 @@ bcrypt = "^4.0.1"
 python-multipart = "^0.0.6"
 greenlet = "^2.0.2"
 alembic = "^1.11.1"
+utils = "^1.0.2"
+config = "^0.5.1"
 
 
 [build-system]

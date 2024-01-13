@@ -10,3 +10,4 @@ router = APIRouter()
 )
 async def ping():
     return {"ping": "pong"}
+

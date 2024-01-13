@@ -1,8 +1,11 @@
 from pydantic import BaseSettings
 
 
-class DB(BaseSettings):
+class TgBot(BaseSettings):
+    token: str
 
+
+class DB(BaseSettings):
     host: str
     port: int
     name: str
@@ -11,7 +14,6 @@ class DB(BaseSettings):
 
 
 class Api(BaseSettings):
-
     secret: str
 
 
@@ -24,6 +26,8 @@ class SettingsExtractor(BaseSettings):
 
     API__SECRET: str
 
+    BOT__TOKEN: str
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
@@ -32,6 +36,7 @@ class SettingsExtractor(BaseSettings):
 class Settings(BaseSettings):
     db: DB
     api: Api
+    tgbot: TgBot
 
 
 def load_config() -> Settings:
@@ -47,5 +52,8 @@ def load_config() -> Settings:
         ),
         api=Api(
             secret=settings.API__SECRET
+        ),
+        tgbot=TgBot(
+            token=settings.BOT__TOKEN
         )
     )
