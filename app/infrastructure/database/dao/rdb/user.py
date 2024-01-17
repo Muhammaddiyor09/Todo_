@@ -17,14 +17,18 @@ class UserDAO(BaseDAO[User]):
             firstname: str,
             lastname: str,
             email: str,
-            password: str
+            password: str,
+            phone_num: int
+
     ) -> dto.User:
         result = await self.session.execute(
             insert(User).values(
                 firstname=firstname,
                 lastname=lastname,
                 email=email,
-                password=password
+                password=password,
+                phone_num=phone_num
+
             ).returning(
                 User
             )

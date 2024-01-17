@@ -47,3 +47,9 @@ class RegisterUser(User):
         min_length=6,
         max_length=50
     )
+    phone_num: int = Field(
+        title="phone_num",
+        description="User phone_num",
+        min_length=7,
+        max_length=9
+    )
